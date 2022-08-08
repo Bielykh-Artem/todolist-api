@@ -2,6 +2,8 @@ import { QueryBuilderType } from "objection";
 import { CommonModel } from "./";
 import { knexConnection } from "../db";
 
+export const todosDefaultModifie = ["id", "title", "is_completed", "created_at"]
+
 export class Todo extends CommonModel {
   static get tableName() {
     return "todos";
@@ -12,7 +14,7 @@ export class Todo extends CommonModel {
 
   static modifiers = {
     default(builder: QueryBuilderType<any>) {
-      builder.select("id", "title", "is_completed", "created_at");
+      builder.select(...todosDefaultModifie);
     },
   };
 }

@@ -1,4 +1,4 @@
-import { TodoModel, Todo } from "../models";
+import { TodoModel, Todo, todosDefaultModifie } from "../models";
 import { PartialModelObject } from "objection";
 
 export const fetchTodos = async (): Promise<Todo[]> => {
@@ -17,7 +17,7 @@ export const addTodo = async (
 ): Promise<Todo> => {
   return TodoModel.query()
     .insert(data)
-    .returning(["id", "title", "is_completed", "created_at"])
+    .returning(todosDefaultModifie)
     .skipUndefined();
 };
 
@@ -28,7 +28,7 @@ export const editTodoByID = async (
   return TodoModel.query()
     .update(data)
     .where({ id })
-    .returning(["id", "title", "is_completed", "created_at"])
+    .returning(todosDefaultModifie)
     .skipUndefined()
     .first();
 };

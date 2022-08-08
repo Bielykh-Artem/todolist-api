@@ -1,0 +1,49 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "description": "todolist-api",
+      "version": "1.0.0",
+      "title": "TodoList Api",
+      "contact": {
+        "email": ""
+      }
+    },
+    "basePath": "/api",
+    "tags": [],
+    "schemes": [
+      "https",
+      "http"
+    ],
+    "paths": {
+      "/alive": {
+        "get": {
+          "tags": [
+            "ALIVE"
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful operation",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "uptime_minutes": {
+                    "type": "integer"
+                  },
+                  "current_date": {
+                    "type": "string"
+                  },
+                  "start_date": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "externalDocs": {
+      "description": "Find out more about Swagger",
+      "url": "http://swagger.io"
+    }
+  }

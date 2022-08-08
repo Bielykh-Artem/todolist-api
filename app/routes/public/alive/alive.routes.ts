@@ -1,5 +1,4 @@
 import * as express from "express";
-import * as buffer from "buffer";
 
 const aliveRouter = express.Router();
 
@@ -13,8 +12,7 @@ aliveRouter.get("/", (_, res) => {
   res.send({
     uptime_minutes,
     current_date,
-    start_date,
-    bufferSize: buffer.constants.MAX_LENGTH,
+    start_date
   });
 });
 
