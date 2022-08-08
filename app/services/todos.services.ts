@@ -26,7 +26,7 @@ export const editTodoByID = async (
   data: PartialModelObject<Todo>
 ): Promise<Todo> => {
   return TodoModel.query()
-    .update(data)
+    .update({ ...data, updated_at: new Date() })
     .where({ id })
     .returning(todosDefaultModifie)
     .skipUndefined()
